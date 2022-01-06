@@ -38,7 +38,8 @@ class RedactingFormatter(logging.Formatter):
         return msg
 
 
-def filter_datum(fields: List, redaction: str, message: str, separator: str):
+def filter_datum(fields: List, redaction: str,
+                 message: str, separator: str) -> str:
     """
     filter_dataum - funtion to that returns log messaged obfuscated
     Arguments:
@@ -49,12 +50,10 @@ def filter_datum(fields: List, redaction: str, message: str, separator: str):
     Returns:
         the obfuscated string
     """
-    msg = message
     for fld in fields:
-        ptrn = "{}=.*?{}".format(fld, separator)
         rplc = "{}={}{}".format(fld, redaction, separator)
-        msg = re.sub(ptrn, rplc, msg)
-    return msg
+        message = re.sub("{}=.*?{}".format(fld, separator), rplc, message)
+    return message
 
 
 def get_logger() -> logging.Logger:
