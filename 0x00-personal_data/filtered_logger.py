@@ -7,7 +7,6 @@ import re
 import logging
 import mysql.connector
 import os
-
 from mysql.connector.dbapi import ROWID
 
 PII_FIELDS = ('name', 'email', 'phone', 'ssn', 'password')
@@ -124,4 +123,7 @@ def main():
 
 
 if __name__ == "__main__":
+    """
+    entry point for the program
+    """
     main()
