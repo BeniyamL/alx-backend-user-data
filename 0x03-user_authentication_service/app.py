@@ -2,7 +2,6 @@
 """
 a flask app module
 """
-from crypt import methods
 from flask import Flask, jsonify, redirect, request, abort
 from auth import Auth
 from sqlalchemy.orm.exc import NoResultFound
